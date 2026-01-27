@@ -1,0 +1,17 @@
+# 忽略Windows系统文件
+desktop.ini
+*.lnk
+
+# 忽略Office文档
+*.docx
+*.xlsx
+
+# 忽略其他HTML项目
+抖音本地生活流程.html
+抖音本地生活流程_files/
+
+# 只保留项目相关文件
+# index.html
+# hero-banner.svg
+# *.jpg
+# *.png
