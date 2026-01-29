@@ -28,14 +28,15 @@
 
         body {
             font-family: "PingFang SC", "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #0a1128 0%, #001f54 25%, #034078 50%, #1282a2 75%, #0a1128 100%);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ebe9 100%);
             background-size: 400% 400%;
             animation: gradientShift 15s ease infinite;
-            color: var(--text-light);
+            color: #2c3e50;
             height: 100vh;
             overflow: hidden;
             user-select: none;
             position: relative;
+            font-size: 16px;
         }
 
         body::before {
@@ -46,9 +47,9 @@
             right: 0;
             bottom: 0;
             background:
-                radial-gradient(circle at 20% 30%, rgba(13, 110, 253, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(0, 191, 255, 0.08) 0%, transparent 60%);
+                radial-gradient(circle at 20% 30%, rgba(212, 184, 134, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(33, 150, 243, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(76, 175, 80, 0.05) 0%, transparent 60%);
             pointer-events: none;
             z-index: 0;
         }
@@ -61,47 +62,49 @@
 
         /* 顶部导航栏 */
         .header {
-            background: rgba(10, 17, 40, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            padding: 15px 30px;
+            padding: 12px 20px 12px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid rgba(18, 130, 162, 0.5);
+            border-bottom: 1px solid rgba(212, 184, 134, 0.3);
             position: relative;
-            box-shadow: 0 4px 20px rgba(0, 31, 84, 0.4);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
         }
 
         .header-left {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            color: var(--text-light);
+            color: #2c3e50;
         }
 
         .logo span {
-            color: var(--li-gold);
+            color: #d4b886;
         }
 
         /* 🆕 CRM同步状态指示器 */
         .sync-status {
             display: flex;
             align-items: center;
-            gap: 8px;
-            padding: 5px 12px;
-            background: rgba(76, 175, 80, 0.2);
-            border-radius: 20px;
-            font-size: 0.8rem;
+            gap: 6px;
+            padding: 4px 10px;
+            background: rgba(76, 175, 80, 0.15);
+            border-radius: 16px;
+            font-size: 0.75rem;
+            color: #2c3e50;
         }
 
         .sync-icon {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             background: #4CAF50;
             animation: pulse 2s infinite;
@@ -115,18 +118,20 @@
         .user-info {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .avatar {
-            width: 40px;
-            height: 40px;
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--li-gold), #b08d55);
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
+            font-size: 0.85rem;
+            color: white;
         }
 
         .user-detail {
@@ -136,20 +141,21 @@
 
         .user-name {
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            color: #2c3e50;
         }
 
         .user-role {
             font-size: 0.75rem;
-            color: var(--text-darker);
+            color: rgba(44, 62, 80, 0.6);
         }
 
         /* 主内容区 */
         .main-content {
             display: flex;
-            height: calc(100vh - 140px);
-            padding: 20px;
-            gap: 20px;
+            height: calc(100vh - 120px);
+            padding: 15px;
+            gap: 15px;
             overflow: hidden;
         }
 
@@ -158,140 +164,145 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            background: rgba(10, 17, 40, 0.4);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
             position: relative;
-            border: 1px solid rgba(18, 130, 162, 0.2);
+            border: 1px solid rgba(212, 184, 134, 0.25);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         /* 🆕 拖拽时的高亮效果 */
         .stage-column.drag-over {
-            background: rgba(255,255,255,0.15);
+            background: rgba(212, 184, 134, 0.15);
             border: 2px dashed var(--li-gold);
         }
 
         .stage-header {
-            padding: 20px;
+            padding: 14px;
             font-weight: bold;
-            font-size: 1.1rem;
-            border-bottom: 3px solid;
+            font-size: 1rem;
+            border-bottom: 2px solid;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .stage-a1 .stage-header {
-            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(76, 175, 80, 0.05));
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.9), rgba(76, 175, 80, 0.7));
             border-color: var(--stage-a1);
         }
 
         .stage-i2 .stage-header {
-            background: linear-gradient(135deg, rgba(33, 150, 243, 0.2), rgba(33, 150, 243, 0.05));
+            background: linear-gradient(135deg, rgba(33, 150, 243, 0.9), rgba(33, 150, 243, 0.7));
             border-color: var(--stage-i2);
         }
 
         .stage-a3 .stage-header {
-            background: linear-gradient(135deg, rgba(255, 87, 34, 0.2), rgba(255, 87, 34, 0.05));
+            background: linear-gradient(135deg, rgba(255, 87, 34, 0.9), rgba(255, 87, 34, 0.7));
             border-color: var(--stage-a3);
         }
 
         .stage-title {
             display: flex;
             flex-direction: column;
-            gap: 5px;
+            gap: 4px;
         }
 
         .stage-name {
-            font-size: 1.2rem;
+            font-size: 1rem;
+            color: white;
         }
 
         .stage-desc {
             font-size: 0.75rem;
-            color: var(--text-darker);
+            color: rgba(255, 255, 255, 0.8);
             font-weight: normal;
         }
 
         .stage-count {
-            background: rgba(255,255,255,0.2);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            color: white;
         }
 
         /* 客户卡片列表 */
         .customer-list {
             flex: 1;
             overflow-y: auto;
-            padding: 15px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
 
         .customer-list::-webkit-scrollbar {
-            width: 6px;
+            width: 4px;
         }
 
         .customer-list::-webkit-scrollbar-thumb {
-            background: rgba(255,255,255,0.3);
-            border-radius: 3px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
         }
 
         /* 🆕 客户卡片 - 可拖拽 */
         .customer-card {
-            background: rgba(10, 17, 40, 0.6);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
-            border-radius: 12px;
-            padding: 15px;
+            border-radius: 10px;
+            padding: 14px;
             cursor: move;
             transition: all 0.3s;
-            border: 1px solid rgba(18, 130, 162, 0.25);
+            border: 1px solid rgba(212, 184, 134, 0.3);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
         }
 
         .customer-card.dragging {
-            opacity: 0.5;
-            transform: rotate(3deg);
+            opacity: 0.6;
+            transform: rotate(2deg);
         }
 
         .customer-card:hover {
-            background: rgba(18, 130, 162, 0.25);
+            background: rgba(255, 255, 255, 1);
             transform: translateY(-2px);
-            border-color: rgba(18, 130, 162, 0.5);
-            box-shadow: 0 4px 20px rgba(18, 130, 162, 0.3);
+            border-color: rgba(212, 184, 134, 0.5);
+            box-shadow: 0 3px 12px rgba(212, 184, 134, 0.2);
         }
 
         .stage-a1 .customer-card {
-            border-left: 4px solid var(--stage-a1);
+            border-left: 3px solid var(--stage-a1);
         }
 
         .stage-i2 .customer-card {
-            border-left: 4px solid var(--stage-i2);
+            border-left: 3px solid var(--stage-i2);
         }
 
         .stage-a3 .customer-card {
-            border-left: 4px solid var(--stage-a3);
+            border-left: 3px solid var(--stage-a3);
         }
 
         .customer-card.active {
             border-color: var(--li-gold);
-            background: rgba(212, 184, 134, 0.15);
+            background: rgba(212, 184, 134, 0.1);
         }
 
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 6px;
         }
 
         .customer-name {
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            color: #ffffff;
         }
 
         /* 🆕 热力图图标按钮 */
@@ -316,9 +327,9 @@
         }
 
         .priority-badge {
-            font-size: 0.65rem;
-            padding: 2px 8px;
-            border-radius: 10px;
+            font-size: 0.6rem;
+            padding: 2px 6px;
+            border-radius: 8px;
             font-weight: normal;
         }
 
@@ -346,29 +357,29 @@
 
         .tag {
             font-size: 0.7rem;
-            padding: 2px 8px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 10px;
-            color: var(--text-dim);
+            padding: 3px 8px;
+            background: rgba(0, 0, 0, 0.04);
+            border-radius: 8px;
+            color: rgba(44, 62, 80, 0.6);
         }
 
         .card-info {
-            font-size: 0.8rem;
-            color: var(--text-dim);
+            font-size: 0.85rem;
+            color: rgba(44, 62, 80, 0.6);
             margin-bottom: 5px;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
         }
 
         .ai-suggestion {
-            background: rgba(33, 150, 243, 0.2);
-            border-left: 3px solid var(--li-blue);
+            background: rgba(33, 150, 243, 0.1);
+            border-left: 2px solid var(--li-blue);
             padding: 8px;
             margin-top: 8px;
             border-radius: 4px;
-            font-size: 0.75rem;
-            color: var(--text-dim);
+            font-size: 0.8rem;
+            color: rgba(44, 62, 80, 0.7);
         }
 
         .ai-suggestion::before {
@@ -379,16 +390,16 @@
 
         .card-actions {
             display: flex;
-            gap: 8px;
-            margin-top: 10px;
+            gap: 6px;
+            margin-top: 8px;
         }
 
         .action-btn {
             flex: 1;
-            padding: 8px;
+            padding: 6px;
             border: none;
             border-radius: 6px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             cursor: pointer;
             transition: all 0.2s;
             font-weight: 600;
@@ -539,14 +550,14 @@
             font-weight: bold;
         }
 
-        /* 🆕 顶部工具栏 - 横向布局 */
+        /* 🆕 顶部工具栏 - 悬浮在右上角 */
         .top-toolbar {
             position: fixed;
-            top: 20px;
-            right: 130px;
-            z-index: 998;
+            top: 80px;
+            right: 20px;
+            z-index: 999;
             display: flex;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
         }
 
@@ -554,15 +565,18 @@
             background: rgba(10, 17, 40, 0.85);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(18, 130, 162, 0.3);
-            border-radius: 12px;
-            padding: 10px 20px;
+            border-radius: 8px;
+            padding: 5px 14px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
+            justify-content: center;
+            gap: 3px;
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 4px 15px rgba(0, 31, 84, 0.3);
+            min-width: 70px;
+            min-height: 56px;
         }
 
         .top-tool-item:hover {
@@ -573,18 +587,52 @@
 
         .top-tool-icon {
             font-size: 1.5rem;
+            display: none;
         }
 
         .top-tool-label {
             font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             white-space: nowrap;
+            font-weight: 500;
         }
 
         .top-tool-count {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: var(--li-gold);
+            line-height: 1.2;
+        }
+
+        /* AI助手嵌入顶部工具栏 */
+        .ai-tool-item {
+            background: linear-gradient(135deg, var(--li-gold), #b08d55);
+            border: none;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 184, 134, 0.5);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .ai-tool-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(212, 184, 134, 0.7);
+        }
+
+        .ai-tool-icon {
+            font-size: 2rem;
+        }
+
+        .ai-tool-badge {
             position: absolute;
-            top: -5px;
-            right: -5px;
+            top: 2px;
+            right: 2px;
             background: #FF5722;
             color: white;
             font-size: 0.65rem;
@@ -775,16 +823,19 @@
             border-radius: 12px;
             line-height: 1.6;
             font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .message.ai .message-content {
             background: rgba(33, 150, 243, 0.2);
             border: 1px solid rgba(33, 150, 243, 0.3);
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .message.user .message-content {
             background: rgba(212, 184, 134, 0.2);
             border: 1px solid rgba(212, 184, 134, 0.3);
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .quick-actions {
@@ -1205,6 +1256,7 @@
             max-height: 90vh;
             overflow-y: auto;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 2px solid #0f2520;
             animation: welcomeSlideIn 0.5s;
             text-align: center;
             position: relative;
@@ -2113,16 +2165,19 @@
             border-radius: 16px;
             line-height: 1.6;
             font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .conv-message.ai .conv-bubble {
             background: rgba(33, 150, 243, 0.15);
             border: 1px solid rgba(33, 150, 243, 0.3);
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .conv-message.user .conv-bubble {
             background: rgba(212, 184, 134, 0.15);
             border: 1px solid rgba(212, 184, 134, 0.3);
+            color: rgba(255, 255, 255, 0.95);
         }
 
         .conv-time {
@@ -2221,10 +2276,10 @@
             display: none;
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
+            left: 14%;
+            width: calc(100% - 14%);
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1500;
             align-items: center;
             justify-content: center;
@@ -2235,57 +2290,61 @@
         }
 
         .funnel-content {
-            background: var(--bg-card);
-            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(30px);
+            border-radius: 20px;
             padding: 30px;
-            max-width: 1000px;
-            width: 90%;
-            max-height: 85vh;
+            max-width: 1100px;
+            width: 95%;
+            max-height: 90vh;
             overflow-y: auto;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(18, 130, 162, 0.15);
         }
 
         .funnel-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--li-gold);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(212, 184, 134, 0.3);
         }
 
         .funnel-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
-            color: var(--li-green-dark);
+            color: #2c3e50;
         }
 
         .funnel-period {
             display: flex;
-            gap: 10px;
+            gap: 8px;
         }
 
         .period-btn {
-            padding: 6px 16px;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid var(--li-green-dark);
-            border-radius: 20px;
-            font-size: 0.85rem;
+            padding: 5px 14px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(212, 184, 134, 0.3);
+            border-radius: 16px;
+            font-size: 0.8rem;
             cursor: pointer;
             transition: all 0.2s;
-            color: var(--li-green-dark);
+            color: #2c3e50;
         }
 
         .period-btn.active {
-            background: var(--li-green-dark);
-            color: var(--li-gold);
+            background: linear-gradient(135deg, #d4b886, #b08d55);
+            color: white;
+            border-color: #d4b886;
         }
 
-        /* 销售漏斗主体 */
+        /* 销售漏斗主体 - 采用圆形设计 */
         .sales-funnel {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0;
+            gap: 25px;
             margin: 30px 0;
             position: relative;
         }
@@ -2294,122 +2353,90 @@
             width: 100%;
             position: relative;
             transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .funnel-stage:hover {
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
-        /* 漏斗形状 */
-        .funnel-bar {
-            height: 80px;
+        /* 圆形设计 - 从大到小 */
+        .funnel-circle {
+            border-radius: 50%;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            padding: 0 30px;
-            position: relative;
-            clip-path: polygon(5% 0%, 95% 0%, 90% 100%, 10% 100%);
+            justify-content: center;
             transition: all 0.3s;
             cursor: pointer;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .funnel-stage:first-child .funnel-bar {
-            clip-path: polygon(0% 0%, 100% 0%, 95% 100%, 5% 100%);
-        }
-
-        .funnel-stage:last-child .funnel-bar {
-            clip-path: polygon(10% 0%, 90% 0%, 85% 100%, 15% 100%);
-        }
-
-        /* 漏斗各阶段颜色 */
-        .stage-leads .funnel-bar {
+        /* 漏斗各阶段圆形大小和颜色 */
+        .stage-leads .funnel-circle {
+            width: 200px;
+            height: 200px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            width: 100%;
         }
 
-        .stage-customers .funnel-bar {
+        .stage-customers .funnel-circle {
+            width: 170px;
+            height: 170px;
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            width: 85%;
-            margin: 0 auto;
         }
 
-        .stage-testdrive .funnel-bar {
+        .stage-testdrive .funnel-circle {
+            width: 140px;
+            height: 140px;
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            width: 70%;
-            margin: 0 auto;
         }
 
-        .stage-locked .funnel-bar {
+        .stage-locked .funnel-circle {
+            width: 110px;
+            height: 110px;
             background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-            width: 55%;
-            margin: 0 auto;
         }
 
-        .stage-delivered .funnel-bar {
+        .stage-delivered .funnel-circle {
+            width: 80px;
+            height: 80px;
             background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            width: 40%;
-            margin: 0 auto;
-        }
-
-        .funnel-bar-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
         }
 
         .stage-icon {
             font-size: 2rem;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            margin-bottom: 8px;
         }
 
         .stage-info h3 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
             color: white;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .stage-subtitle {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .funnel-bar-right {
-            text-align: right;
-        }
-
-        .stage-count {
-            font-size: 2rem;
-            font-weight: bold;
-            color: white;
-            line-height: 1;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.8);
             margin-bottom: 4px;
         }
 
+        .stage-count {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
         .stage-rate {
-            font-size: 0.8rem;
-            color: rgba(255,255,255,0.9);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.9);
             font-weight: 600;
-        }
-
-        /* 漏斗连接线 */
-        .funnel-connector {
-            height: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-        .connector-arrow {
-            font-size: 1.5rem;
-            color: var(--li-gold);
-            animation: arrowBounce 1.5s infinite;
-        }
-
-        @keyframes arrowBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(3px); }
         }
 
         /* 转化率详细数据 */
@@ -2536,37 +2563,37 @@
             position: fixed;
             left: 0;
             top: 0;
-            width: 13%;
+            width: 10%;
             height: 100vh;
-            background: linear-gradient(180deg, rgba(10, 17, 40, 0.95) 0%, rgba(0, 31, 84, 0.95) 50%, rgba(3, 64, 120, 0.95) 100%);
+            background: linear-gradient(180deg, #0f2520 0%, #1a3d36 50%, #0f2520 100%);
             backdrop-filter: blur(20px);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 10vh 0;
+            padding: 8vh 0;
             justify-content: space-evenly;
             z-index: 1000;
-            box-shadow: 4px 0 20px rgba(18, 130, 162, 0.3);
-            border-right: 1px solid rgba(18, 130, 162, 0.3);
+            box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+            border-right: 1px solid rgba(212, 184, 134, 0.3);
         }
 
         .sidebar-item {
             width: 85%;
-            height: 14%;
+            height: 12%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 6px;
             cursor: pointer;
-            border-radius: 16px;
+            border-radius: 12px;
             transition: all 0.3s;
             position: relative;
         }
 
         .sidebar-item:hover {
-            background: rgba(212, 184, 134, 0.15);
-            transform: translateX(5px);
+            background: rgba(212, 184, 134, 0.2);
+            transform: translateX(3px);
         }
 
         .sidebar-item.active {
@@ -2576,18 +2603,18 @@
 
         .sidebar-item-icon {
             font-size: 3rem;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
 
         .sidebar-item-label {
-            font-size: 0.95rem;
+            font-size: 1.6rem;
             color: rgba(255, 255, 255, 0.9);
             font-weight: 600;
         }
 
-        /* 调整主内容区，为侧边栏留出空间 */
+        /* 调整主内容区,为侧边栏留出空间 */
         body {
-            padding-left: 18%;
+            padding-left: 14%;
         }
 
         /* 🆕 数据看板弹窗 */
@@ -2595,10 +2622,10 @@
             display: none;
             position: fixed;
             top: 0;
-            left: 18%;
-            width: calc(100% - 18%);
+            left: 14%;
+            width: calc(100% - 14%);
             height: 100vh;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 2000;
             align-items: center;
             justify-content: center;
@@ -2609,7 +2636,7 @@
         }
 
         .dashboard-content {
-            background: linear-gradient(135deg, rgba(10, 17, 40, 0.98) 0%, rgba(0, 31, 84, 0.98) 100%);
+            background: linear-gradient(135deg, rgba(15, 37, 32, 0.98) 0%, rgba(26, 61, 54, 0.98) 100%);
             backdrop-filter: blur(30px);
             border-radius: 20px;
             padding: 40px;
@@ -2618,8 +2645,8 @@
             max-height: 90vh;
             overflow-y: auto;
             position: relative;
-            border: 1px solid rgba(18, 130, 162, 0.3);
-            box-shadow: 0 10px 50px rgba(0, 31, 84, 0.7);
+            border: 1px solid rgba(212, 184, 134, 0.3);
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.5);
         }
 
         .dashboard-header {
@@ -2628,13 +2655,13 @@
             align-items: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid var(--li-gold);
+            border-bottom: 2px solid rgba(212, 184, 134, 0.3);
         }
 
         .dashboard-title {
             font-size: 1.8rem;
             font-weight: bold;
-            color: var(--li-gold);
+            color: #ffffff;
         }
 
         .dashboard-grid {
@@ -2660,7 +2687,7 @@
 
         .dashboard-card-title {
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
             margin-bottom: 15px;
         }
 
@@ -2676,6 +2703,7 @@
             display: flex;
             align-items: center;
             gap: 5px;
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .trend-up {
@@ -2883,34 +2911,31 @@
     <!-- 底部快捷操作栏 -->
     <!-- 底部工具栏已移除 -->
 
-    <!-- 🆕 顶部工具栏 - 横向布局 -->
+    <!-- 顶部工具栏 - 悬浮在右上角 -->
     <div class="top-toolbar">
-        <div class="top-tool-item" onclick="showReceptionStats()" style="position: relative;" title="今日接待">
-            <div class="top-tool-icon">👥</div>
+        <div class="top-tool-item" onclick="showReceptionStats()" title="今日接待">
+            <div class="top-tool-count">12</div>
             <div class="top-tool-label">今日接待</div>
-            <span class="top-tool-count">12</span>
         </div>
-        <div class="top-tool-item" onclick="showTestDriveStats()" style="position: relative;" title="今日试驾">
-            <div class="top-tool-icon">🚗</div>
+        <div class="top-tool-item" onclick="showTestDriveStats()" title="今日试驾">
+            <div class="top-tool-count">5</div>
             <div class="top-tool-label">今日试驾</div>
-            <span class="top-tool-count">5</span>
         </div>
-        <div class="top-tool-item" onclick="showTodoList()" style="position: relative;" title="今日待办">
-            <div class="top-tool-icon">📋</div>
+        <div class="top-tool-item" onclick="showTodoList()" title="今日待办">
+            <div class="top-tool-count">8</div>
             <div class="top-tool-label">今日待办</div>
-            <span class="top-tool-count">8</span>
         </div>
-        <div class="top-tool-item" onclick="startVoiceListening()" title="聆听功能">
-            <div class="top-tool-icon">🎤</div>
-            <div class="top-tool-label">聆听</div>
+        <div class="top-tool-item" onclick="showCustomerPool()" title="客户池">
+            <div class="top-tool-count">40</div>
+            <div class="top-tool-label">客户池</div>
+        </div>
+        <div class="ai-tool-item" onclick="toggleAIChat()" title="AI机器人">
+            <div class="ai-tool-icon">🤖</div>
+            <span class="ai-tool-badge">3</span>
         </div>
     </div>
 
-    <!-- AI智能助手浮动按钮 - 右上角 -->
-    <div class="ai-assistant-float" onclick="toggleAIChat()" title="AI智能助手">
-        <span class="toolbar-badge">3</span>
-        <div class="toolbar-icon">🤖</div>
-    </div>
+    <!-- AI智能助手浮动按钮 - 已隐藏,已嵌入顶部工具栏 -->
 
     <!-- 🆕 AI对话助手侧边栏 -->
     <div class="ai-chat-panel" id="aiChatPanel">
@@ -3585,110 +3610,74 @@
                         <button class="period-btn active" onclick="switchPeriod('month')">本月</button>
                         <button class="period-btn" onclick="switchPeriod('quarter')">本季度</button>
                     </div>
-                    <div class="close-btn" onclick="closeSalesFunnel()">&times;</div>
+            <div class="close-btn" onclick="closeSalesFunnel()" style="color: #2c3e50; font-size: 1.5rem; cursor: pointer;">&times;</div>
                 </div>
             </div>
 
-            <!-- 销售漏斗主体 -->
+            <!-- 销售漏斗主体 - 圆形设计 -->
             <div class="sales-funnel">
                 <!-- 第1层：线索量 -->
                 <div class="funnel-stage stage-leads">
-                    <div class="funnel-bar">
-                        <div class="funnel-bar-left">
-                            <div class="stage-icon">🎯</div>
-                            <div class="stage-info">
-                                <h3>线索量</h3>
-                                <div class="stage-subtitle">Marketing Leads</div>
-                            </div>
+                    <div class="funnel-circle">
+                        <div class="stage-icon">🎯</div>
+                        <div class="stage-info">
+                            <h3>线索量</h3>
+                            <div class="stage-subtitle">Marketing Leads</div>
                         </div>
-                        <div class="funnel-bar-right">
-                            <div class="stage-count" id="funnel-leads">580</div>
-                            <div class="stage-rate">100%</div>
-                        </div>
+                        <div class="stage-count" id="funnel-leads">580</div>
+                        <div class="stage-rate">100%</div>
                     </div>
-                </div>
-
-                <div class="funnel-connector">
-                    <div class="connector-arrow">↓</div>
                 </div>
 
                 <!-- 第2层：客户量 -->
                 <div class="funnel-stage stage-customers">
-                    <div class="funnel-bar">
-                        <div class="funnel-bar-left">
-                            <div class="stage-icon">👥</div>
-                            <div class="stage-info">
-                                <h3>客户量</h3>
-                                <div class="stage-subtitle">Valid Customers</div>
-                            </div>
+                    <div class="funnel-circle">
+                        <div class="stage-icon">👥</div>
+                        <div class="stage-info">
+                            <h3>客户量</h3>
+                            <div class="stage-subtitle">Valid Customers</div>
                         </div>
-                        <div class="funnel-bar-right">
-                            <div class="stage-count" id="funnel-customers">348</div>
-                            <div class="stage-rate">60% 转化</div>
-                        </div>
+                        <div class="stage-count" id="funnel-customers">348</div>
+                        <div class="stage-rate">60% 转化</div>
                     </div>
-                </div>
-
-                <div class="funnel-connector">
-                    <div class="connector-arrow">↓</div>
                 </div>
 
                 <!-- 第3层：试驾量 -->
                 <div class="funnel-stage stage-testdrive">
-                    <div class="funnel-bar">
-                        <div class="funnel-bar-left">
-                            <div class="stage-icon">🚗</div>
-                            <div class="stage-info">
-                                <h3>试驾量</h3>
-                                <div class="stage-subtitle">Test Drive</div>
-                            </div>
+                    <div class="funnel-circle">
+                        <div class="stage-icon">🚗</div>
+                        <div class="stage-info">
+                            <h3>试驾量</h3>
+                            <div class="stage-subtitle">Test Drive</div>
                         </div>
-                        <div class="funnel-bar-right">
-                            <div class="stage-count" id="funnel-testdrive">156</div>
-                            <div class="stage-rate">45% 转化</div>
-                        </div>
+                        <div class="stage-count" id="funnel-testdrive">156</div>
+                        <div class="stage-rate">45% 转化</div>
                     </div>
-                </div>
-
-                <div class="funnel-connector">
-                    <div class="connector-arrow">↓</div>
                 </div>
 
                 <!-- 第4层：锁单量 -->
                 <div class="funnel-stage stage-locked">
-                    <div class="funnel-bar">
-                        <div class="funnel-bar-left">
-                            <div class="stage-icon">🔒</div>
-                            <div class="stage-info">
-                                <h3>锁单量</h3>
-                                <div class="stage-subtitle">Locked Orders</div>
-                            </div>
+                    <div class="funnel-circle">
+                        <div class="stage-icon">🔒</div>
+                        <div class="stage-info">
+                            <h3>锁单量</h3>
+                            <div class="stage-subtitle">Locked Orders</div>
                         </div>
-                        <div class="funnel-bar-right">
-                            <div class="stage-count" id="funnel-locked">78</div>
-                            <div class="stage-rate">50% 转化</div>
-                        </div>
+                        <div class="stage-count" id="funnel-locked">78</div>
+                        <div class="stage-rate">50% 转化</div>
                     </div>
-                </div>
-
-                <div class="funnel-connector">
-                    <div class="connector-arrow">↓</div>
                 </div>
 
                 <!-- 第5层：交付量 -->
                 <div class="funnel-stage stage-delivered">
-                    <div class="funnel-bar">
-                        <div class="funnel-bar-left">
-                            <div class="stage-icon">✅</div>
-                            <div class="stage-info">
-                                <h3>交付量</h3>
-                                <div class="stage-subtitle">Delivered</div>
-                            </div>
+                    <div class="funnel-circle">
+                        <div class="stage-icon">✅</div>
+                        <div class="stage-info">
+                            <h3>交付量</h3>
+                            <div class="stage-subtitle">Delivered</div>
                         </div>
-                        <div class="funnel-bar-right">
-                            <div class="stage-count" id="funnel-delivered">42</div>
-                            <div class="stage-rate">54% 转化</div>
-                        </div>
+                        <div class="stage-count" id="funnel-delivered">42</div>
+                        <div class="stage-rate">54% 转化</div>
                     </div>
                 </div>
             </div>
@@ -4206,6 +4195,75 @@
             panel.classList.toggle('open');
         }
 
+        function openAIForLeads() {
+            const panel = document.getElementById('aiChatPanel');
+            if (!panel.classList.contains('open')) {
+                panel.classList.add('open');
+            }
+
+            const leadsAnalysis = `根据您当前要完成的订单目标和线索目标情况，建议您积极执行获客举措。
+
+📊 业务诊断目标拆解及工作任务数据盘点：
+
+| 指标 | 当前完成 | 目标 | 完成率 | 差距 | 建议 |
+|------|---------|------|--------|------|------|
+| 累计线索 | 890 | 1200 | 74% | -310 | 加大线上推广力度 |
+| 累计接待 | 156 | 200 | 78% | -44 | 提高邀约转化率 |
+| 累计试驾 | 68 | - | - | - | 跟进待安排客户 |
+| 累计签约 | 42 | 40 | 105% | +2| 维持当前水平 |
+
+🎯 AI获客方案生成：
+
+一、线索采买方案（280条）：
+1. 汽之家线索采买：150条
+   - 建议投放预算：¥15,000
+   - 目标区域：本城市及周边30公里
+   - 定向人群：25-45岁，关注新能源汽车用户
+
+2. 易车网线索采买：80条
+   - 建议投放预算：¥8,000
+   - 重点车型：理想L7/L8意向用户
+
+3. 抖音汽车线索采买：50条
+   - 建议投放预算：¥5,000
+   - 短视频引流，结合直播获取线索
+
+二、公私域获客方案（310条）：
+1. 公域获客（210条）：
+   a. 微信广告投放：80条
+      - 朋友圈广告：¥6,000
+      - 公众号推广：¥4,000
+
+   b. 小红书内容营销：60条
+      - 评测文章：10篇
+      - 使用体验分享：20篇
+      - 车主故事：30篇
+
+   c. 微信视频号/快手：70条
+      - 店长直播：每周3场
+      - 产品讲解短视频：每天1条
+
+2. 私域获客（100条）：
+   a. 老客户转介绍：60条
+      - 推荐奖励：每成功推荐1条线索奖励¥200
+      - 转介绍活动策划：老带新优惠政策
+
+   b. 朋友圈裂变：40条
+      - 裂变海报设计
+      - 限时优惠活动
+      - 邀请好友试驾
+
+💡 执行建议：
+1. 立即行动：优先执行线索采买快速获客
+2. 持续投入：公私域获客需要长期运营
+3. 数据监控：每日监控各渠道线索质量
+4. 团队协作：明确各渠道负责人，定期复盘`;
+
+            setTimeout(() => {
+                addChatMessage('ai', leadsAnalysis);
+            }, 500);
+        }
+
         function sendChatMessage() {
             const input = document.getElementById('chatInput');
             const message = input.value.trim();
@@ -4369,6 +4427,16 @@
             setTimeout(() => {
                 showNotification('1. 跟进张先生试驾反馈（10:00）\n2. 陈先生金融方案确认（14:00）\n3. 周女士签约（15:30）\n4. 完成日报（18:00）');
             }, 500);
+        }
+
+        function showCustomerPool() {
+            showNotification('👥 客户池统计：当前共有40位活跃客户');
+            setTimeout(() => {
+                showNotification('📊 客户分布：A级客户8位，B级客户15位，C级客户17位');
+                setTimeout(() => {
+                    showNotification('💡 建议优先跟进A级客户，本月目标转化率65%');
+                }, 1500);
+            }, 1000);
         }
 
         function startVoiceListening() {
@@ -5466,27 +5534,27 @@
             </div>
 
             <!-- 顶部关键指标 -->
-            <div class="dashboard-grid">
-                <div class="dashboard-card" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(76, 175, 80, 0.05) 100%); border-color: #4CAF50;">
+            <div class="dashboard-grid" style="margin-bottom: 22px;">
+                <div class="dashboard-card" style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(76, 175, 80, 0.05) 100%); border-color: #4CAF50; padding: 18px;">
                     <div class="dashboard-card-title">今日接待量</div>
-                    <div class="dashboard-card-value" style="color: #4CAF50;">8</div>
+                    <div class="dashboard-card-value" style="color: #4CAF50; font-size: 1.9rem;">8</div>
                     <div class="dashboard-card-trend trend-up">
                         <span>▲ 25%</span>
                         <span>较昨日 +2人</span>
                     </div>
                 </div>
-                <div class="dashboard-card" style="background: linear-gradient(135deg, rgba(33, 150, 243, 0.2) 0%, rgba(33, 150, 243, 0.05) 100%); border-color: #2196F3;">
+                <div class="dashboard-card" style="background: linear-gradient(135deg, rgba(33, 150, 243, 0.2) 0%, rgba(33, 150, 243, 0.05) 100%); border-color: #2196F3; padding: 18px;">
                     <div class="dashboard-card-title">今日试驾量</div>
-                    <div class="dashboard-card-value" style="color: #2196F3;">3</div>
+                    <div class="dashboard-card-value" style="color: #2196F3; font-size: 1.9rem;">3</div>
                     <div class="dashboard-card-trend trend-up">
                         <span>▲ 50%</span>
                         <span>较昨日 +1人</span>
                     </div>
                 </div>
-                <div class="dashboard-card" style="background: linear-gradient(135deg, rgba(255, 152, 0, 0.2) 0%, rgba(255, 152, 0, 0.05) 100%); border-color: #FF9800;">
+                <div class="dashboard-card" style="background: linear-gradient(135deg, rgba(255, 152, 0, 0.2) 0%, rgba(255, 152, 0, 0.05) 100%); border-color: #FF9800; padding: 18px;">
                     <div class="dashboard-card-title">今日签约量</div>
-                    <div class="dashboard-card-value" style="color: #FF9800;">1</div>
-                    <div class="dashboard-card-trend" style="color: rgba(255, 255, 255, 0.6);">
+                    <div class="dashboard-card-value" style="color: #FF9800; font-size: 1.9rem;">1</div>
+                    <div class="dashboard-card-trend style="color: rgba(255, 255, 255, 0.6);">
                         <span>→ 持平</span>
                         <span>保持稳定</span>
                     </div>
@@ -5494,60 +5562,46 @@
             </div>
 
             <!-- 本月累计数据 -->
-            <div style="margin-top: 30px;">
-                <h3 style="color: var(--li-gold); margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px;">
+            <div style="margin-top: 30px; padding: 20px; background: rgba(255, 255, 255, 0.03); border-radius: 16px;">
+                <h3 style="color: var(--li-gold); margin-bottom: 15px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px;">
                     <span>📈</span>
                     <span>本月累计业绩</span>
                 </h3>
-                <div class="dashboard-grid">
-                    <div class="dashboard-card">
+                <div class="dashboard-grid" style="margin-bottom: 0; grid-template-columns: repeat(4, 1fr);">
+                    <div class="dashboard-card" style="padding: 20px;">
+                        <div class="dashboard-card-title">累计线索</div>
+                        <div class="dashboard-card-value" style="font-size: 1.9rem;">890</div>
+                        <div class="dashboard-card-trend trend-up" style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>目标 1200</span>
+                            <div style="display: flex; gap: 5px; align-items: center;">
+                                <span>完成率 74%</span>
+                                <button onclick="openAIForLeads()" style="background: linear-gradient(135deg, var(--li-gold), #b08d55); border: none; border-radius: 50%; width: 24px; height: 24px; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center;" title="AI分析">🤖</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-card" style="padding: 20px;">
                         <div class="dashboard-card-title">累计接待</div>
-                        <div class="dashboard-card-value">156</div>
+                        <div class="dashboard-card-value" style="font-size: 1.9rem;">156</div>
                         <div class="dashboard-card-trend trend-up">
                             <span>目标 200</span>
                             <span>完成率 78%</span>
                         </div>
                     </div>
-                    <div class="dashboard-card">
+                    <div class="dashboard-card" style="padding: 20px;">
                         <div class="dashboard-card-title">累计试驾</div>
-                        <div class="dashboard-card-value">68</div>
+                        <div class="dashboard-card-value" style="font-size: 1.9rem;">68</div>
                         <div class="dashboard-card-trend trend-up">
                             <span>转化率 43.6%</span>
                             <span>优于平均</span>
                         </div>
                     </div>
-                    <div class="dashboard-card">
+                    <div class="dashboard-card" style="padding: 20px;">
                         <div class="dashboard-card-title">累计签约</div>
-                        <div class="dashboard-card-value">42</div>
+                        <div class="dashboard-card-value" style="font-size: 1.9rem;">42</div>
                         <div class="dashboard-card-trend trend-up">
                             <span>目标 40</span>
                             <span>完成率 105%</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 客户阶段分布 -->
-            <div style="margin-top: 30px;">
-                <h3 style="color: var(--li-gold); margin-bottom: 20px; font-size: 1.2rem; display: flex; align-items: center; gap: 10px;">
-                    <span>👥</span>
-                    <span>客户阶段分布</span>
-                </h3>
-                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
-                    <div style="background: linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(76, 175, 80, 0.05) 100%); border: 1px solid rgba(76, 175, 80, 0.3); border-radius: 16px; padding: 25px; text-align: center;">
-                        <div style="font-size: 2rem; margin-bottom: 10px;">📝</div>
-                        <div style="font-size: 2rem; font-weight: bold; color: #4CAF50; margin-bottom: 8px;">23人</div>
-                        <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">A1认知+I1兴趣</div>
-                    </div>
-                    <div style="background: linear-gradient(135deg, rgba(33, 150, 243, 0.15) 0%, rgba(33, 150, 243, 0.05) 100%); border: 1px solid rgba(33, 150, 243, 0.3); border-radius: 16px; padding: 25px; text-align: center;">
-                        <div style="font-size: 2rem; margin-bottom: 10px;">🔄</div>
-                        <div style="font-size: 2rem; font-weight: bold; color: #2196F3; margin-bottom: 8px;">12人</div>
-                        <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">A2-In互动</div>
-                    </div>
-                    <div style="background: linear-gradient(135deg, rgba(255, 87, 34, 0.15) 0%, rgba(255, 87, 34, 0.05) 100%); border: 1px solid rgba(255, 87, 34, 0.3); border-radius: 16px; padding: 25px; text-align: center;">
-                        <div style="font-size: 2rem; margin-bottom: 10px;">✅</div>
-                        <div style="font-size: 2rem; font-weight: bold; color: #FF5722; margin-bottom: 8px;">5人</div>
-                        <div style="font-size: 0.9rem; color: rgba(255, 255, 255, 0.7);">A3-A行动</div>
                     </div>
                 </div>
             </div>
@@ -5562,51 +5616,94 @@
                 <!-- 左右两大部分结构 -->
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
 
-                    <!-- 左侧：漏斗可视化 -->
-                    <div style="background: rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 30px; display: flex; flex-direction: column; justify-content: center;">
-                        <div style="text-align: center; margin-bottom: 15px;">
-                            <div style="width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2.5rem; font-weight: bold; color: white; box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);">580</div>
-                            <div style="font-size: 1rem; color: var(--li-gold); margin-top: 10px; font-weight: bold;">线索量</div>
-                        </div>
+                <!-- 左侧：漏斗可视化 -->
+                    <div style="background: rgba(255, 255, 255, 0.05); border-radius: 16px; padding: 30px; display: flex; flex-direction: column; justify-content: center; position: relative;">
+                        <div style="text-align: center; margin-bottom: auto;">
+                            <!-- 梯形漏斗设计 -->
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                                <!-- 线索量 -->
+                                <div style="width: 100%; max-width: 280px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <span style="font-size: 1.3rem;">🎯</span>
+                                        <div style="text-align: left;">
+                                            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.9);">线索量</div>
+                                            <div style="font-size: 0.6rem; color: rgba(255,255,255,0.7);">Marketing Leads</div>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div style="font-size: 1.2rem; font-weight: bold; color: white;">580</div>
+                                        <div style="font-size: 0.65rem; color: rgba(255,255,255,0.8);">100%</div>
+                                    </div>
+                                </div>
 
-                        <div style="text-align: center; margin: 20px 0; color: var(--li-gold); font-size: 1.5rem;">↓</div>
-                        <div style="text-align: center; padding: 8px; background: rgba(76, 175, 80, 0.2); border-radius: 8px; margin-bottom: 15px;">
-                            <span style="color: #4CAF50; font-weight: bold; font-size: 1.1rem;">60.0% 转化率</span>
-                        </div>
+                                <div style="font-size: 1rem; color: var(--li-gold); text-align: center;">↓</div>
 
-                        <div style="text-align: center; margin-bottom: 15px;">
-                            <div style="width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2.2rem; font-weight: bold; color: white; box-shadow: 0 4px 20px rgba(240, 147, 251, 0.5);">348</div>
-                            <div style="font-size: 1rem; color: var(--li-gold); margin-top: 10px; font-weight: bold;">客户量</div>
-                        </div>
+                                <!-- 客户量 -->
+                                <div style="width: 85%; max-width: 238px; height: 60px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: space-between; padding: 0 18px; border-radius: 8px; box-shadow: 0 4px 12px rgba(240, 147, 251, 0.4);">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <span style="font-size: 1.3rem;">👥</span>
+                                        <div style="text-align: left;">
+                                            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.9);">客户量</div>
+                                            <div style="font-size: 0.6rem; color: rgba(255,255,255,0.7);">Valid Customers</div>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div style="font-size: 1.2rem; font-weight: bold; color: white;">348</div>
+                                        <div style="font-size: 0.65rem; color: rgba(255,255,255,0.8);">60%</div>
+                                    </div>
+                                </div>
 
-                        <div style="text-align: center; margin: 20px 0; color: var(--li-gold); font-size: 1.5rem;">↓</div>
-                        <div style="text-align: center; padding: 8px; background: rgba(76, 175, 80, 0.2); border-radius: 8px; margin-bottom: 15px;">
-                            <span style="color: #4CAF50; font-weight: bold; font-size: 1.1rem;">44.8% 转化率</span>
-                        </div>
+                                <div style="font-size: 1rem; color: var(--li-gold); text-align: center;">↓</div>
 
-                        <div style="text-align: center; margin-bottom: 15px;">
-                            <div style="width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 2rem; font-weight: bold; color: white; box-shadow: 0 4px 20px rgba(79, 172, 254, 0.5);">156</div>
-                            <div style="font-size: 1rem; color: var(--li-gold); margin-top: 10px; font-weight: bold;">试驾量</div>
-                        </div>
+                                <!-- 试驾量 -->
+                                <div style="width: 70%; max-width: 196px; height: 60px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: space-between; padding: 0 16px; border-radius: 8px; box-shadow: 0 4px 12px rgba(79, 172, 254, 0.4);">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <span style="font-size: 1.3rem;">🚗</span>
+                                        <div style="text-align: left;">
+                                            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.9);">试驾量</div>
+                                            <div style="font-size: 0.6rem; color: rgba(255,255,255,0.7);">Test Drive</div>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div style="font-size: 1.2rem; font-weight: bold; color: white;">156</div>
+                                        <div style="font-size: 0.65rem; color: rgba(255,255,255,0.8);">45%</div>
+                                    </div>
+                                </div>
 
-                        <div style="text-align: center; margin: 20px 0; color: var(--li-gold); font-size: 1.5rem;">↓</div>
-                        <div style="text-align: center; padding: 8px; background: rgba(76, 175, 80, 0.2); border-radius: 8px; margin-bottom: 15px;">
-                            <span style="color: #4CAF50; font-weight: bold; font-size: 1.1rem;">50.0% 转化率</span>
-                        </div>
+                                <div style="font-size: 1rem; color: var(--li-gold); text-align: center;">↓</div>
 
-                        <div style="text-align: center; margin-bottom: 15px;">
-                            <div style="width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 1.8rem; font-weight: bold; color: white; box-shadow: 0 4px 20px rgba(67, 233, 123, 0.5);">78</div>
-                            <div style="font-size: 1rem; color: var(--li-gold); margin-top: 10px; font-weight: bold;">锁单量</div>
-                        </div>
+                                <!-- 锁单量 -->
+                                <div style="width: 55%; max-width: 154px; height: 60px; background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); display: flex; align-items: center; justify-content: space-between; padding: 0 14px; border-radius: 8px; box-shadow: 0 4px 12px rgba(67, 233, 123, 0.4);">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <span style="font-size: 1.3rem;">🔒</span>
+                                        <div style="text-align: left;">
+                                            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.9);">锁单量</div>
+                                            <div style="font-size: 0.6rem; color: rgba(255,255,255,0.7);">Locked Orders</div>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div style="font-size: 1.2rem; font-weight: bold; color: white;">78</div>
+                                        <div style="font-size: 0.65rem; color: rgba(255,255,255,0.8);">50%</div>
+                                    </div>
+                                </div>
 
-                        <div style="text-align: center; margin: 20px 0; color: var(--li-gold); font-size: 1.5rem;">↓</div>
-                        <div style="text-align: center; padding: 8px; background: rgba(76, 175, 80, 0.2); border-radius: 8px; margin-bottom: 15px;">
-                            <span style="color: #4CAF50; font-weight: bold; font-size: 1.1rem;">53.8% 转化率</span>
-                        </div>
+                                <div style="font-size: 1rem; color: var(--li-gold); text-align: center;">↓</div>
 
-                        <div style="text-align: center;">
-                            <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 1.6rem; font-weight: bold; color: white; box-shadow: 0 4px 20px rgba(250, 112, 154, 0.5);">42</div>
-                            <div style="font-size: 1rem; color: var(--li-gold); margin-top: 10px; font-weight: bold;">交付量</div>
+                                <!-- 交付量 -->
+                                <div style="width: 40%; max-width: 112px; height: 60px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); display: flex; align-items: center; justify-content: space-between; padding: 0 12px; border-radius: 8px; box-shadow: 0 4px 12px rgba(250, 112, 154, 0.4);">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <span style="font-size: 1.3rem;">✅</span>
+                                        <div style="text-align: left;">
+                                            <div style="font-size: 0.85rem; color: rgba(255,255,255,0.9);">交付量</div>
+                                            <div style="font-size: 0.6rem; color: rgba(255,255,255,0.7);">Delivered</div>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: right;">
+                                        <div style="font-size: 1.2rem; font-weight: bold; color: white;">42</div>
+                                        <div style="font-size: 0.65rem; color: rgba(255,255,255,0.8);">54%</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
